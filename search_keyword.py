@@ -14,7 +14,7 @@ sys.setdefaultencoding("utf8")
 def translate(str):
     out = set()
     line = str.strip().decode('utf-8', 'ignore')  # 处理前进行相关的处理，包括转换成Unicode等
-    p2 = re.compile(ur'[^\u4e00-\u9fa5]')  # 中文的编码范围是：\u4e00到\u9fa5
+    p2 = re.compile(u'[^\u4e00-\u9fa5]')  # 中文的编码范围是：\u4e00到\u9fa5
     zh = " ".join(p2.split(line)).strip()
     # zh = "\n".join(zh.split()) #dsds经过相关处理后得到中文的文本
     for s in zh.split():
@@ -47,7 +47,7 @@ def extract(path):
         if sub_file:
             result.update(sub_file)
     else:
-        print file
+        print(file)
         child = extract(path + "/" + file)
     if child:
         result.update(child)
